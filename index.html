@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Sanuda 🎂 — The Elevator of Memories</title>
+  <meta name="description" content="A special birthday gift — an interactive elevator journey through memories, adventures, and love." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== AMBIENT PARTICLES ========== -->
+  <div id="ambient-particles"></div>
+
+  <!-- ========== INTRO SCREEN ========== -->
+  <div id="intro-screen" class="active">
+    <div class="intro-content">
+      <div class="intro-sparkle-ring">
+        <div class="sparkle s1"></div>
+        <div class="sparkle s2"></div>
+        <div class="sparkle s3"></div>
+        <div class="sparkle s4"></div>
+        <div class="sparkle s5"></div>
+        <div class="sparkle s6"></div>
+      </div>
+      <h1 class="intro-title">
+        <span class="title-line line-1">Happy Birthday</span>
+        <span class="title-line line-2">Sanuda</span>
+        <span class="title-line line-3">🎂</span>
+      </h1>
+      <p class="intro-subtitle">Step into the elevator of memories</p>
+      <button id="enter-btn" class="enter-button" aria-label="Enter the elevator">
+        <span class="btn-text">Enter the Elevator</span>
+        <span class="btn-shimmer"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== ELEVATOR WRAPPER ========== -->
+  <div id="elevator-wrapper" class="hidden">
+
+    <!-- Floor Display Panel -->
+    <div id="floor-display-panel">
+      <div class="panel-frame">
+        <div class="panel-screws">
+          <span class="screw tl"></span>
+          <span class="screw tr"></span>
+          <span class="screw bl"></span>
+          <span class="screw br"></span>
+        </div>
+        <div id="direction-indicator">
+          <span id="arrow-up" class="arrow">▲</span>
+          <span id="arrow-down" class="arrow">▼</span>
+        </div>
+        <div id="floor-number-display">
+          <span id="floor-num">—</span>
+        </div>
+        <div id="floor-label-display">Select a Floor</div>
+      </div>
+    </div>
+
+    <!-- Elevator Shaft -->
+    <div id="elevator-shaft">
+      <!-- Elevator Doors -->
+      <div id="elevator-doors">
+        <div id="door-left" class="door"></div>
+        <div id="door-right" class="door"></div>
+        <div class="door-seam"></div>
+      </div>
+
+      <!-- Content Behind Doors -->
+      <div id="floor-content-area">
+        <div id="floor-content-inner"></div>
+      </div>
+
+      <!-- Elevator Frame -->
+      <div class="elevator-frame frame-left"></div>
+      <div class="elevator-frame frame-right"></div>
+      <div class="elevator-frame frame-top"></div>
+      <div class="elevator-frame frame-bottom"></div>
+    </div>
+
+    <!-- Elevator Controls Panel -->
+    <div id="buttons-panel">
+      <div class="buttons-panel-frame">
+        <div class="panel-label">CONTROLS</div>
+
+        <!-- UP / DOWN Navigation (default mode) -->
+        <div id="nav-controls">
+          <button id="btn-up" class="nav-btn" aria-label="Go Up">
+            <span class="nav-arrow">▲</span>
+            <span class="nav-text">Up</span>
+          </button>
+          <div id="floor-indicator-strip">
+            <span class="floor-dot" data-f="1">1</span>
+            <span class="floor-dot" data-f="2">2</span>
+            <span class="floor-dot" data-f="3">3</span>
+            <span class="floor-dot" data-f="4">4</span>
+            <span class="floor-dot" data-f="5">5</span>
+            <span class="floor-dot" data-f="6">6</span>
+          </div>
+          <button id="btn-down" class="nav-btn" aria-label="Go Down">
+            <span class="nav-arrow">▼</span>
+            <span class="nav-text">Down</span>
+          </button>
+        </div>
+
+        <!-- Unlocked Floor Grid (hidden until all floors visited) -->
+        <div id="floor-buttons" class="locked">
+          <div id="unlock-message">
+            <span class="lock-icon">🔒</span>
+            <span>Explore all floors to unlock quick travel</span>
+          </div>
+          <div id="floor-grid">
+            <button class="floor-btn" data-floor="1" aria-label="Floor 1 — Childhood">
+              <span class="btn-num">1</span>
+              <span class="btn-label">Childhood</span>
+              <span class="btn-light"></span>
+            </button>
+            <button class="floor-btn" data-floor="2" aria-label="Floor 2 — Adventures">
+              <span class="btn-num">2</span>
+              <span class="btn-label">Adventures</span>
+              <span class="btn-light"></span>
+            </button>
+            <button class="floor-btn" data-floor="3" aria-label="Floor 3 — Chaos">
+              <span class="btn-num">3</span>
+              <span class="btn-label">Chaos</span>
+              <span class="btn-light"></span>
+            </button>
+            <button class="floor-btn" data-floor="4" aria-label="Floor 4 — Growth">
+              <span class="btn-num">4</span>
+              <span class="btn-label">Growth</span>
+              <span class="btn-light"></span>
+            </button>
+            <button class="floor-btn" data-floor="5" aria-label="Floor 5 — Today">
+              <span class="btn-num">5</span>
+              <span class="btn-label">Today</span>
+              <span class="btn-light"></span>
+            </button>
+            <button class="floor-btn" data-floor="6" aria-label="Floor 6 — Future">
+              <span class="btn-num">6</span>
+              <span class="btn-label">Future</span>
+              <span class="btn-light"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="emergency-strip">
+          <div class="strip-light"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ========== CONFETTI CANVAS ========== -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ========== AUDIO (optional ambient ding) ========== -->
+  <!-- You can add elevator ding sounds here if desired -->
+
+  <script src="script.js"></script>
+</body>
+</html>
